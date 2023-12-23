@@ -1,0 +1,35 @@
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    //Recursive run in a tree (left side -> right side). check values
+    bool isSameTree(TreeNode* p, TreeNode* q) {
+        if((p->left != nullptr) && (q->left != nullptr))
+        {
+            if (p->left->val != q->left->val)
+                return false;
+            if(!isSameTree(p->left, q->left))
+                return false;
+        }                                                                                         
+        if((p->right != nullptr) && (q->right != nullptr))
+        {
+            if (p->right->val != q->right->val)
+                return false;
+            if (!isSameTree(p->right, q->right))
+                return false;
+        }
+        //Weird. In case when 1 node have nullptr child< when other one doesnt. so them not same but "if"-s upper wont notice
+        if(((p->left != nullptr) && (q->left == nullptr)) || ((p->left = nullptr) && (q->left != nullptr)) || ((p->right != nullptr) && (q->right == nullptr)) || ((p->right = nullptr) && (q->right != nullptr)))
+            return false;
+        return true;
+    }
+};
