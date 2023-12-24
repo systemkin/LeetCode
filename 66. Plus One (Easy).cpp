@@ -1,3 +1,5 @@
+//Unsigned integer represented as vector of digits
+//Task: make function f(x) = x+1 
 class Solution {
 public:
     vector<int> plusOne(vector<int>& digits) {
