@@ -13,6 +13,8 @@ public:
     ListNode* reverseList(ListNode* head) {
         if (head == nullptr)
             return nullptr;
+        
+        //Unnecessary "if" - Commented after checking other solutions
         if (head->next == nullptr)
             return head;
         ListNode *prev;
