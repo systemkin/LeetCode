@@ -12,7 +12,7 @@
 class Solution {
 public:
 //This function is need for memory save (cause if recursively return vector - we will lost memory)
-//Idea about this function came to me after "beats 12%"
+//Idea about this function came to me after "beats 12%". this beats 76.40%
     void onestep(TreeNode* root) {
         if(root == nullptr)
             return;;
